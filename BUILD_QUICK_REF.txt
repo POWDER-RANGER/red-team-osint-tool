@@ -1,0 +1,226 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  VORTEX 2026 - BUILD SYSTEM QUICK REFERENCE                   ║
+║                    Windows .EXE + ZIP Distribution Toolkit                    ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌─ QUICK START (5 MINUTES) ─────────────────────────────────────────────────────┐
+
+  1. INSTALL PREREQUISITES
+     □ Python 3.12+:    https://www.python.org/downloads/
+     □ Visual C++:      https://visualstudio.microsoft.com/visual-cpp-build-tools/
+     □ Git (optional):  https://git-scm.com/download/win
+
+  2. CLONE & SETUP
+     git clone https://github.com/POWDER-RANGER/red-team-osint-tool.git
+     cd red-team-osint-tool
+     python -m venv venv
+     .\venv\Scripts\Activate.ps1
+
+  3. INSTALL DEPENDENCIES
+     pip install -r requirements.txt
+     pip install -r build_requirements.txt
+
+  4. BUILD
+     PowerShell:  .\build.ps1
+     CMD:         build.bat
+
+  5. RESULT
+     ✓ vortex_0.1.0_windows.zip      (40 MB, ready to distribute)
+     ✓ dist\vortex_dist\vortex.exe   (50 MB, self-contained executable)
+
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌─ FILES INCLUDED ──────────────────────────────────────────────────────────────┐
+
+  SCRIPTS
+    build.ps1              PowerShell build automation (recommended)
+    build.bat              Command Prompt build automation
+    build.sh               Bash/Linux build automation
+    windows-build.yml      GitHub Actions CI/CD pipeline
+
+  CONFIGURATION
+    pyinstaller_config.spec    PyInstaller specification
+    build_requirements.txt     Build-time dependencies
+
+  DOCUMENTATION
+    BUILD_SYSTEM_README.md     Complete reference guide
+    WINDOWS_BUILD_GUIDE.md     Detailed Windows instructions
+    BUILD_QUICK_REF.txt        This quick reference
+
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌─ COMMAND REFERENCE ───────────────────────────────────────────────────────────┐
+
+  POWERSHELL (Recommended for Windows)
+    .\build.ps1                    Standard build
+    .\build.ps1 -Verbose           Show detailed output
+    .\build.ps1 -Clean             Clean & rebuild
+    .\build.ps1 -Sign -CertPath "C:\cert.pfx"   Code sign
+
+  COMMAND PROMPT
+    build.bat                      Standard build
+    REM Check logs:
+    type build_*.log | find "ERROR"
+
+  BASH (Linux/WSL2)
+    bash build.sh                  Standard build
+    chmod +x build.sh              Make executable first
+
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌─ FILE SIZES ──────────────────────────────────────────────────────────────────┐
+
+  vortex.exe                  45-60 MB    (Fully self-contained, no Python needed)
+  vortex_0.1.0_windows.zip    35-45 MB    (Compressed distribution package)
+  Extracted contents          ~120 MB     (Uncompressed on disk)
+
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌─ TROUBLESHOOTING ─────────────────────────────────────────────────────────────┐
+
+  ERROR: "Python not found"
+  SOLUTION: Add Python to PATH or use full path:
+           C:\Python312\python.exe --version
+
+  ERROR: "Visual C++ Build Tools required"
+  SOLUTION: Download from:
+           https://visualstudio.microsoft.com/visual-cpp-build-tools/
+
+  ERROR: "Module not found" (after build starts)
+  SOLUTION: 1. Edit pyinstaller_config.spec
+           2. Add to hiddenimports: 'your.missing.module'
+           3. Run: .\build.ps1
+
+  ERROR: Build takes >10 minutes
+  SOLUTION: Normal for first build (installs dependencies)
+           Subsequent builds: 2-3 minutes
+           Disable UPX in spec file if too slow
+
+  ERROR: vortex.exe won't run
+  SOLUTION: Check Event Viewer logs:
+           Get-EventLog Application | Where Source -eq vortex
+
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌─ DISTRIBUTION GUIDE ──────────────────────────────────────────────────────────┐
+
+  END USERS (Simple)
+    1. Download vortex_0.1.0_windows.zip
+    2. Extract to C:\Users\YourUser\vortex\
+    3. Run vortex.exe
+    4. Edit config.yaml as needed
+
+  SYSTEM ADMINISTRATORS (Enterprise)
+    1. Verify checksums: certUtil -hashfile vortex_0.1.0_windows.zip SHA256
+    2. Code sign (optional): See WINDOWS_BUILD_GUIDE.md
+    3. Deploy via: GPO, SCCM, Intune, or cloud management
+    4. Create shortcuts on user desktops
+    5. Configure centralized config.yaml
+
+  GITHUB RELEASES (Automated)
+    1. Copy windows-build.yml → .github/workflows/
+    2. Commit and push to GitHub
+    3. GitHub Actions auto-builds on every push
+    4. Artifacts auto-published to Releases page
+    5. Tags trigger release builds: git tag v0.2.0 && git push
+
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌─ PRODUCTION CHECKLIST ────────────────────────────────────────────────────────┐
+
+  BEFORE BUILDING
+    □ Python 3.12+ installed
+    □ Visual C++ Build Tools installed
+    □ Virtual environment created
+    □ Dependencies installed
+    □ No uncommitted changes in repo
+
+  BUILDING
+    □ Build script runs without errors
+    □ No missing module warnings
+    □ .EXE file created (45-60 MB)
+    □ ZIP file created (35-45 MB)
+
+  TESTING
+    □ Extract ZIP on clean Windows machine
+    □ vortex.exe --help works
+    □ Configuration loads correctly
+    □ All collectors functional
+
+  DISTRIBUTION
+    □ Verify SHA256 checksums
+    □ Code sign .EXE (if required)
+    □ Test on target OS version
+    □ Publish release notes
+    □ Update documentation
+
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌─ DEVELOPER CUSTOMIZATION ─────────────────────────────────────────────────────┐
+
+  CHANGE ENTRY POINT
+    Edit: pyinstaller_config.spec
+    Find: a = Analysis(['src/vortex/cli/main.py'], ...)
+    Change: ['src/your/entry/main.py']
+
+  ADD NEW MODULE
+    Edit: pyinstaller_config.spec
+    Find: hiddenimports=[...]
+    Add: 'vortex.your.new.module'
+
+  CHANGE TO GUI MODE (vs Console)
+    Edit: pyinstaller_config.spec
+    Find: console=True
+    Change: console=False
+
+  DISABLE COMPRESSION (faster builds)
+    Edit: pyinstaller_config.spec
+    Find: upx=True
+    Change: upx=False
+
+  CUSTOM ICON
+    1. Create 256x256 PNG image
+    2. Convert to .ICO: https://icoconvert.com/
+    3. Save to: assets/vortex.ico
+    4. Build normally (automatically used)
+
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌─ RESOURCES ───────────────────────────────────────────────────────────────────┐
+
+  Documentation
+    BUILD_SYSTEM_README.md         Comprehensive guide
+    WINDOWS_BUILD_GUIDE.md         Step-by-step instructions
+
+  Links
+    PyInstaller:     https://pyinstaller.readthedocs.io/
+    Python:          https://www.python.org/
+    VORTEX Repo:     https://github.com/POWDER-RANGER/red-team-osint-tool
+
+  Support
+    GitHub Issues:   https://github.com/POWDER-RANGER/red-team-osint-tool/issues
+    Windows Dev:     https://learn.microsoft.com/en-us/windows/
+
+└───────────────────────────────────────────────────────────────────────────────┘
+
+BUILD TIMESTAMPS
+  First build (setup + compile):    5-10 minutes
+  Subsequent builds (after setup):  2-3 minutes
+  Rebuild with -Clean:             3-5 minutes
+
+COMPATIBILITY
+  Build Host:  Windows 10/11, Linux (WSL2), macOS
+  Target OS:   Windows 7 SP1+ (realistically Windows 10+)
+  Architecture: x64 only (64-bit)
+
+VERSION INFORMATION
+  VORTEX Version:    0.1.0
+  Build System:      1.0.0
+  Python Required:   3.12+
+  Created:           January 3, 2026
+
+═══════════════════════════════════════════════════════════════════════════════
+
+For detailed instructions, see: BUILD_SYSTEM_README.md or WINDOWS_BUILD_GUIDE.md
+
+Questions? Check: https://github.com/POWDER-RANGER/red-team-osint-tool/issues
