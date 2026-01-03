@@ -1,0 +1,14 @@
+red-team-osint-tool/
+├── database/
+│   ├── schema.sql          # Database schema
+│   ├── init_db.py          # Initialization script
+│   └── osint.db            # SQLite database (created)
+├── osinttool/
+│   ├── db_writer.py        # Database integration module
+│   └── scrapers/
+│       └── rss_scraper.py  # Example integrated scraper
+├── frontend/
+│   └── src/
+│       └── Dashboard.jsx   # React GUI component
+├── api_server.py           # Flask API server
+└── SETUP.md                # This file
