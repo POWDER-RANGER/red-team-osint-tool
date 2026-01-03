@@ -7,10 +7,6 @@
 
 **Built like a weapon. Monitors like a predator. Evidence you can actually use in court.**
 
-<div align="center">
-<img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/6e301f4effeea55d6bd9d50f20b5cdd2/a6f082f9-c449-4964-8b7d-f41207dc88a7/f9380c3a.png" alt="VORTEX vs Standard OSINT Tools" width="90%" style="border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); margin: 2rem 0;">
-</div>
-
 > **VORTEX doesn't collect data. It *harvests intel*.**
 
 ---
@@ -30,17 +26,24 @@ python run.py daemon  # Your intel flows live
 
 ---
 
-## ⚡ **Weaponized Intelligence Platform**
+## ⚡ **VORTEX vs Standard OSINT Tools**
 
-| **Capability** | **VORTEX** | **Generic Tools** |
-|---|---|---|
-| 🔍 **Multi-Vector Harvest** | ✅ **Native** | ⚠️ Limited |
-| 🛡️ **Tamper-Evident Vault** | ✅ **Native** | ❌ None |
-| 🔔 **Instant Alerts** | ✅ **Native** | ⚠️ Basic |
-| 🕵️ **Dark Web / Onion** | ✅ **Native** | ❌ None |
-| 🔒 **OPSEC Hardening** | ✅ **Native** | ⚠️ Minimal |
+<div align="center">
+
+| Feature | VORTEX | Generic Tools |
+|:--------|:------:|:-------------:|
+| **Multi-Source Coverage** | ✅ Native | ⚠️ Limited |
+| **Real-Time Monitoring** | ✅ Native | ⚠️ Partial |
+| **Dark Web / Onion** | ✅ Native | ❌ None |
+| **Tamper-Evident Storage** | ✅ Native | ❌ None |
+| **Automated Alerts** | ✅ Native | ⚠️ Limited |
+| **OPSEC Hardening** | ✅ Native | ⚠️ Minimal |
+| **Webhook + SMTP** | ✅ Native | ⚠️ Partial |
+| **Hash-Chain Integrity** | ✅ Native | ❌ None |
 
 **VORTEX dominates every category.**
+
+</div>
 
 ---
 
@@ -56,9 +59,36 @@ Onion Pastes  Content Diffs    Tamper-Evident    280-char Intel
 
 ---
 
-## ⚙️ **Configuration (Production Ready)**
+## 💎 **Battle-Tested Features**
 
-<div style="background: #0f172a; border-radius: 16px; padding: 2rem; border: 1px solid #334155; margin: 2rem 0; font-family: 'SF Mono', monospace;">
+### **🔍 Multi-Vector Intelligence Harvesting**
+- **RSS threat feeds** with custom intervals
+- **HTTP endpoint scraping** with rate limiting
+- **Tor onion services** with circuit rotation
+- **IOC extraction** (IPs, domains, hashes, emails)
+- **Content fingerprinting** (SHA-256) for change detection
+
+### **🛡️ Tamper-Evident Evidence Vault**
+- Hash-chained SQLite records
+- Cryptographic integrity verification
+- Full content + metadata archival
+- **Court-admissible** evidence chain
+
+### **🔔 Operator-First Alerting**
+- Slack, Discord, Teams webhooks
+- SMTP with TLS/STARTTLS/OAuth2
+- Keyword + regex matching
+- 280-char intel snippets with full evidence links
+
+### **🕵️ OPSEC Hardened**
+- SOCKS5 Tor proxy integration
+- Environment variable secrets (`${SECRET}`)
+- Request rate limiting + fingerprint rotation
+- Sensitive data redaction in logs
+
+---
+
+## ⚙️ **Configuration (Production Ready)**
 
 ```yaml
 matching:
@@ -69,20 +99,32 @@ sources:
   rss:
     - name: "Krebs"
       url: "https://krebsonsecurity.com/feed/"
+      interval_seconds: 1800
+  http:
+    - name: "DarkReading"
+      url: "https://www.darkreading.com/rss_simple.asp"
+      interval_seconds: 3600
   onion:
     tor_socks5: "socks5h://127.0.0.1:9050"
     targets:
       - name: "PasteSite"
         url: "http://pastesite.onion/"
+        interval_seconds: 7200
 
 alerts:
-  webhook: "${SLACK_WEBHOOK}"
+  webhook:
+    enabled: true
+    url: "${SLACK_WEBHOOK}"
   smtp:
+    enabled: true
+    host: "smtp.gmail.com"
+    port: 587
     username: "${SMTP_USER}"
     password: "${SMTP_PASSWORD}"
+    from_addr: "osint@yourcompany.com"
+    to_addrs:
+      - "security@yourcompany.com"
 ```
-
-</div>
 
 ---
 
@@ -103,7 +145,7 @@ curl --socks5 127.0.0.1:9050 https://check.torproject.org
 ## 🎮 **Operator Commands**
 
 | Command | Purpose |
-|---|---|
+|---------|---------|
 | `python run.py daemon` | **Live monitoring** (the real weapon) |
 | `python run.py once` | One-time intelligence harvest |
 | `python run.py recent --limit 25` | **Latest hits** from your vault |
@@ -115,43 +157,53 @@ curl --socks5 127.0.0.1:9050 https://check.torproject.org
 
 ```
 vortex/
-├── sources/     # RSS, HTTP, Onion 🕸️
-├── storage/     # Hash-chained SQLite 🔗
-├── alerts/      # Slack/Email webhooks 📱
-├── opsec/       # Tor + rate limits 🛡️
-└── cli.py       # Your command center 🎯
+├── sources/       # RSS, HTTP, Onion collectors 🕸️
+├── enrich/        # IOC extraction, WHOIS, DNS, hashing 🔍
+├── storage/       # Hash-chained SQLite evidence vault 🔗
+├── alerts/        # Webhook, SMTP notification handlers 📱
+├── opsec/         # Tor integration, rate limits, redaction 🛡️
+├── scheduler.py   # APScheduler job runner ⏰
+└── cli.py         # Your command center 🎯
 ```
 
 ---
 
 ## ⚖️ **Legal & Responsible Disclosure**
 
-<div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-left: 4px solid #ef4444; padding: 1.5rem; border-radius: 12px; margin: 2rem 0;">
+> **🔴 PROFESSIONAL TOOL FOR AUTHORIZED OPERATIONS ONLY**
 
-**🔴 PROFESSIONAL TOOL FOR AUTHORIZED OPERATIONS ONLY**
+✅ **Legal Use Cases:**
+- Authorized red team assessments
+- Threat hunting for your organization
+- Monitoring your own attack surface
+- Defensive threat intelligence collection
 
-✅ **Legal:** Red team assessments, threat hunting, attack surface monitoring  
-❌ **Illegal:** Unauthorized access, competitor intel, personal data harvesting
+❌ **Never Use For:**
+- Unauthorized system access
+- Competitor monitoring
+- Personal data harvesting
+- Evading law enforcement
 
 **Operators assume full legal responsibility.**
-
-</div>
 
 ---
 
 ## 📈 **Production Roadmap**
 
 | **Phase** | **Feature** | **Status** |
-|---|---|---|
-| Q1 2026 | Multi-source + alerting | ✅ **LIVE** |
-| Q2 2026 | ML triage + rule packs | 🔄 **Building** |
+|-----------|-------------|------------|
+| Q1 2026 | Multi-source + alerting + hash-chain storage | ✅ **LIVE** |
+| Q2 2026 | ML triage + automated rule packs | 🔄 **Building** |
 | Q3 2026 | MISP/ThreatConnect export | 🔵 **Planned** |
+| Q4 2026 | Browser automation + screenshot capture | 🔵 **Planned** |
 
 ---
 
-<div align="center" style="margin: 4rem 0; padding: 3rem; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 24px; border: 1px solid #334155;">
+## 🔥 **Get In The Game**
 
-<h2 style="font-family: 'Orbitron', monospace; background: linear-gradient(135deg, #0ea5e9 0%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">🚀 DEPLOY VORTEX NOW</h2>
+<div align="center">
+
+### **Deploy VORTEX in 90 seconds:**
 
 ```bash
 git clone https://github.com/POWDER-RANGER/vortex.git
@@ -159,19 +211,22 @@ cd vortex && pip install -r requirements.txt
 python run.py daemon
 ```
 
-**Your intel flows in 90 seconds.**
+**Your intel flows.**
 
-<a href="https://github.com/POWDER-RANGER/vortex" style="display: inline-block; background: linear-gradient(135deg, #0ea5e9 0%, #ec4899 100%); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.2rem; text-decoration: none; box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4); transition: all 0.3s ease;">
-⭐ Star on GitHub
-</a>
+<br>
+
+[![⭐ Star on GitHub](https://img.shields.io/badge/⭐_Star_on_GitHub-100000?style=for-the-badge&logo=github&logoColor=white&labelColor=0ea5e9&color=ec4899)](https://github.com/POWDER-RANGER/vortex)
 
 </div>
 
-<div align="center" style="color: #64748b; font-size: 0.9rem; margin-top: 3rem;">
-**VORTEX: Because real operators don't use toy scanners.**<br>
+---
+
+<div align="center">
+
+**VORTEX: Because real operators don't use toy scanners.**
+
 MIT License | January 2026 | Built by operators, for operators
+
 </div>
 ```
-
- 
 
