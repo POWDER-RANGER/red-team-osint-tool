@@ -1,0 +1,157 @@
+# ═══════════════════════════════════════════════════════════════
+# RED TEAM OSINT TOOL - CONFIGURATION TEMPLATE
+# ═══════════════════════════════════════════════════════════════
+# 
+# SECURITY NOTICE:
+# 1. Copy this file to 'config.yml' in the same directory
+# 2. Replace all placeholder values with your actual API keys
+# 3. NEVER commit config.yml to version control (it's in .gitignore)
+# 4. Obtain API keys only from official provider websites
+# 5. Keep API keys confidential - they grant access to paid services
+#
+# ═══════════════════════════════════════════════════════════════
+
+# ───────────────────────────────────────────────────────────────
+# CORE SERVICES - High Priority OSINT Sources
+# ───────────────────────────────────────────────────────────────
+
+shodan:
+  api_key: "YOUR_SHODAN_API_KEY_HERE"
+  enabled: true
+  # Obtain from: https://account.shodan.io/
+  # Free tier: 100 API credits/month (1 credit per host lookup)
+  # Use for: Device/service enumeration, open ports, banners
+
+censys:
+  api_id: "YOUR_CENSYS_API_ID_HERE"
+  api_secret: "YOUR_CENSYS_API_SECRET_HERE"
+  enabled: true
+  # Obtain from: https://search.censys.io/account/api
+  # Free tier: 250 queries/month
+  # Use for: Certificate transparency, host discovery
+
+securitytrails:
+  api_key: "YOUR_SECURITYTRAILS_API_KEY_HERE"
+  enabled: true
+  # Obtain from: https://securitytrails.com/corp/api
+  # Free tier: 50 API calls/month
+  # Use for: Historical DNS data, subdomain enumeration
+
+hunter:
+  api_key: "YOUR_HUNTER_API_KEY_HERE"
+  enabled: true
+  # Obtain from: https://hunter.io/api_keys
+  # Free tier: 25 searches/month
+  # Use for: Email enumeration, domain employee discovery
+
+haveibeenpwned:
+  api_key: "YOUR_HIBP_API_KEY_HERE"
+  enabled: true
+  # Obtain from: https://haveibeenpwned.com/API/Key
+  # Cost: ~$3.50/month (no free tier for API)
+  # Use for: Breach data correlation, credential exposure checks
+
+# ───────────────────────────────────────────────────────────────
+# SECONDARY SERVICES - Enhanced Coverage
+# ───────────────────────────────────────────────────────────────
+
+certspotter:
+  api_key: "YOUR_CERTSPOTTER_API_KEY_HERE"
+  enabled: false
+  # Obtain from: https://sslmate.com/certspotter/pricing
+  # Free tier: Limited results
+  # Use for: Certificate transparency monitoring
+
+zoomeye:
+  api_key: "YOUR_ZOOMEYE_API_KEY_HERE"
+  enabled: false
+  # Obtain from: https://www.zoomeye.org/api
+  # Free tier: 10,000 queries/month
+  # Use for: Cyberspace search (China-based, complements Shodan)
+
+criminalip:
+  api_key: "YOUR_CRIMINALIP_API_KEY_HERE"
+  enabled: false
+  # Obtain from: https://www.criminalip.io/developer/api/key-issuance
+  # Free tier: Available
+  # Use for: Threat intelligence, malicious IP detection
+
+abuseipdb:
+  api_key: "YOUR_ABUSEIPDB_API_KEY_HERE"
+  enabled: false
+  # Obtain from: https://www.abuseipdb.com/account/api
+  # Free tier: 1,000 checks/day
+  # Use for: IP reputation checks, abuse reports
+
+virustotal:
+  api_key: "YOUR_VIRUSTOTAL_API_KEY_HERE"
+  enabled: false
+  # Obtain from: https://www.virustotal.com/gui/user/YOUR_USERNAME/apikey
+  # Free tier: 4 requests/minute
+  # Use for: File/URL/domain reputation checks
+
+# ───────────────────────────────────────────────────────────────
+# SOCIAL MEDIA / WEB SERVICES - Use with Caution
+# ───────────────────────────────────────────────────────────────
+
+twitter:
+  api_key: "YOUR_TWITTER_API_KEY_HERE"
+  api_secret: "YOUR_TWITTER_API_SECRET_HERE"
+  access_token: "YOUR_TWITTER_ACCESS_TOKEN_HERE"
+  access_token_secret: "YOUR_TWITTER_ACCESS_TOKEN_SECRET_HERE"
+  enabled: false
+  # ⚠️ DEPRECATED: Twitter API v1.1 heavily restricted since 2023
+  # Obtain from: https://developer.twitter.com/en/portal/dashboard
+  # Requires: Paid API tier ($100+/month) for meaningful access
+  # Use for: Social media OSINT (if budget allows)
+  # Alternative: Consider manual scraping or third-party OSINT platforms
+
+github:
+  api_token: "YOUR_GITHUB_PERSONAL_ACCESS_TOKEN_HERE"
+  enabled: false
+  # Obtain from: https://github.com/settings/tokens
+  # Free tier: 5,000 requests/hour (authenticated)
+  # Use for: Code repository searches, exposed credentials
+
+# ───────────────────────────────────────────────────────────────
+# DARK WEB / THREAT INTELLIGENCE - Advanced Use Only
+# ───────────────────────────────────────────────────────────────
+
+pastebin:
+  enabled: true
+  # No API key required for basic Google dork searches
+  # Use for: Leaked credential monitoring via dorks
+
+# ───────────────────────────────────────────────────────────────
+# OUTPUT CONFIGURATION
+# ───────────────────────────────────────────────────────────────
+
+output:
+  format: "json"  # Options: json, html, pdf (future)
+  filename_template: "osint_report_{domain}_{timestamp}.json"
+  verbosity: "info"  # Options: debug, info, warning, error
+  save_raw_responses: false  # Store raw API responses for debugging
+
+# ───────────────────────────────────────────────────────────────
+# OPERATIONAL SETTINGS
+# ───────────────────────────────────────────────────────────────
+
+network:
+  timeout: 30  # Seconds before API call times out
+  retries: 3   # Number of retry attempts for failed requests
+  delay: 1.0   # Delay between API calls (seconds, avoid rate limits)
+
+logging:
+  enabled: true
+  log_file: "osint_tool.log"
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+# ───────────────────────────────────────────────────────────────
+# ETHICAL USE ACKNOWLEDGMENT
+# ───────────────────────────────────────────────────────────────
+# By using this tool, you confirm:
+# 1. You have authorization to investigate the target domain
+# 2. You will comply with all applicable laws and regulations
+# 3. You understand this tool sends target identifiers to third-party APIs
+# 4. You accept responsibility for any violations of terms of service
+# ───────────────────────────────────────────────────────────────
