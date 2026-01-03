@@ -1,400 +1,150 @@
+<!-- =========================================================
+     V3 — THE TITAN OF SOFTWARE (Da Vinci Blueprint Edition)
+     "Perfection is not a small thing, but many small things."
+     Architecture: TITAN-CLASS • Grade: 💯
+=========================================================== -->
 
+<div align="center">
 
-```html
-    <nav>
-        <div class="container">
-            <div class="logo">⚡ VORTEX</div>
-            <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#specs">Tech Specs</a></li>
-                <li><a href="#use-cases">Use Cases</a></li>
-                <li><button class="cta-button">Get Started</button></li>
-            </ul>
-        </div>
-    </nav>
-```
+<!-- HERO: VITRUVIAN TITAN -->
+<svg width="100%" height="380" viewBox="0 0 1200 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#bf953f"/>
+      <stop offset="50%" stop-color="#fcf6ba"/>
+      <stop offset="100%" stop-color="#b38728"/>
+    </linearGradient>
+  </defs>
 
-### CANVAS_NEW_STR
-```html
-    <nav>
-        <div class="container">
-            <div class="logo">🏛️ CURTIS FARRAR</div>
-            <ul>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#arsenal">Arsenal</a></li>
-                <li><a href="#engage">Engage</a></li>
-                <li><button class="cta-button">Hire Me</button></li>
-            </ul>
-        </div>
-    </nav>
-```
+  <rect width="1200" height="380" fill="#020617"/>
+  <rect width="1200" height="380" fill="url(#grid)" opacity="0.28"/>
 
-## CANVAS_EDIT_2
+  <line x1="60" y1="40" x2="60" y2="340" stroke="#334155" stroke-width="2"/>
 
-### CANVAS_OLD_STR
-```html
-        <div class="hero-content">
-            <h1>Enterprise-Grade <span class="highlight">Threat Intelligence</span> That Actually Works</h1>
-            <p>VORTEX is the red-team OSINT framework built for security researchers who demand automation, precision, and operational security. Real-time monitoring. Dark web integration. Tamper-proof evidence. No compromises.</p>
-            <div class="hero-buttons">
-                <button class="btn-primary">⬇ Download Now</button>
-                <button class="btn-secondary">📖 View Docs</button>
-            </div>
-```
+  <text x="90" y="95" font-family="serif" font-size="18" fill="#64748b" letter-spacing="4">
+    FIG. I — IDENTITY
+  </text>
 
-### CANVAS_NEW_STR
-```html
-        <div class="hero-content">
-            <h1>Vault Architect <span class="highlight">× Systems Engineer</span></h1>
-            <p>Production-grade autonomy platforms. Cryptographic vaults. Red-team OSINT. Built like a cathedral, operated like a war machine. 4,000+ research hours. 95.2% verified accuracy. 100% CI/CD.</p>
-            <div class="hero-buttons">
-                <button class="btn-primary">💼 Contract Phase I</button>
-                <button class="btn-secondary">📊 View Arsenal</button>
-            </div>
-```
+  <text x="90" y="170" font-family="serif" font-size="78" font-weight="900"
+        fill="url(#goldGrad)" letter-spacing="2">
+    CURTIS
+  </text>
+  <text x="90" y="245" font-family="serif" font-size="78" font-weight="900"
+        fill="#e2e8f0" letter-spacing="2">
+    FARRAR
+  </text>
 
-## CANVAS_EDIT_3
+  <text x="90" y="300" font-family="monospace" font-size="22" fill="#94a3b8">
+    [ TITAN_CLASS_ENGINEER ] :: [ SYSTEMS_ARCHITECT ]
+  </text>
 
-### CANVAS_OLD_STR
-```html
-            <div class="hero-image">
-                <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/302b35bc-b0df-4432-a992-50029f017db0.png" alt="VORTEX Dashboard">
-            </div>
-```
+  <circle cx="900" cy="190" r="120" stroke="#334155" fill="none"/>
+  <circle cx="900" cy="190" r="85" stroke="#bf953f" fill="none" stroke-dasharray="10,6"/>
+  <circle cx="900" cy="190" r="50" stroke="#0ea5e9" fill="none"/>
 
-### CANVAS_NEW_STR
-```html
-            <div class="hero-image">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/50d35ae6-3437-42d6-82ae-ccf627be29a4" alt="Curtis Farrar — Vault Architect">
-            </div>
-```
+  <text x="900" y="200" text-anchor="middle"
+        font-family="serif" font-size="42" font-weight="bold" fill="#ffffff">💯</text>
+  <text x="900" y="235" text-anchor="middle"
+        font-family="monospace" font-size="14" fill="#94a3b8">
+    CI/CD DISCIPLINE
+  </text>
+</svg>
 
-## CANVAS_EDIT_4
+<img
+  src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/50d35ae6-3437-42d6-82ae-ccf627be29a4"
+  alt="The Titan Subject"
+  width="100%"
+  style="max-width: 780px; border: 3px solid #bf953f; margin-top: -32px; box-shadow: 0 0 40px rgba(191,149,63,.25);"
+/>
 
-### CANVAS_OLD_STR
-```html
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="section-header">
-            <h2>Built for Operators</h2>
-            <p>Purpose-engineered capabilities that separate VORTEX from point-and-click OSINT toys.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">📡</div>
-                <h3>Multi-Source Intelligence</h3>
-                <p>RSS feeds, HTTP endpoints, and Tor onion services. Unified data collection across 3+ source types with intelligent rate limiting and circuit renewal.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔐</div>
-                <h3>Tamper-Evident Storage</h3>
-                <p>SQLite with hash-chained integrity verification. Cryptographic proof that evidence hasn&apos;t been modified. Court-ready documentation chain.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚙️</div>
-                <h3>Automated Enrichment</h3>
-                <p>IOC extraction, DNS/WHOIS lookups, content hashing, and diff computation. Automatically enrich raw data into intelligence.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Smart Alerting</h3>
-                <p>Webhook + SMTP alerts with regex and keyword matching. Route intelligence to Slack, Discord, or email in real-time.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🕵️</div>
-                <h3>OPSEC Hardened</h3>
-                <p>Tor integration, request rate limiting, environment variable secrets management, and sensitive data redaction. Stay invisible.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⏱️</div>
-                <h3>Always Watching</h3>
-                <p>Daemon mode for continuous monitoring. Flexible scheduling, one-time scans, or manual queries. Your operation, your rules.</p>
-            </div>
-        </div>
-    </section>
-```
+<br><br>
 
-### CANVAS_NEW_STR
-```html
-    <!-- Projects Section -->
-    <section id="projects" class="features">
-        <div class="section-header">
-            <h2>Grand Inventions</h2>
-            <p>Production-grade systems engineered for operators who build cathedrals in hostile territory.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🔍</div>
-                <h3>red-team-osint-tool</h3>
-                <p>Async reconnaissance engine. Tor onion monitoring. Hash-chain evidence vaults. IOC enrichment. Automated alerts. Court-admissible audit trails.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🤖</div>
-                <h3>CharlesAI</h3>
-                <p>Autonomous agent platform. OPAV autonomy loops. Perplexity reasoning. Browser automation. Real-time dashboard. Persistent memory vaults.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔐</div>
-                <h3>OBELISK_CORE</h3>
-                <p>Zero-trust multi-agent vault. AES-256 encryption. HMAC audit chains. Distributed governance. Immutable decision logging.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎮</div>
-                <h3>nine-realities-netcode</h3>
-                <p>Original N+1 netcode theory. 4,000+ hours research. 95.2% verified accuracy. ORCID-linked. Interactive simulations. Academic publication.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>CONductOR</h3>
-                <p>Windows systems automation. Selenium browser control. PowerShell orchestration. Pester CI/CD. Full production hardening.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>CIVWATCH</h3>
-                <p>ML anomaly detection. TensorFlow.js predictions. Real-time OSINT monitoring. Automated threat alerting. Continuous surveillance.</p>
-            </div>
-        </div>
-    </section>
-```
+<p align="center" style="font-family: serif; font-size: 18px; color: #94a3b8;">
+  “Simplicity is the ultimate sophistication.” — Leonardo da Vinci<br>
+  <b>“Encryption is the ultimate authority.” — Farrar</b>
+</p>
 
-## CANVAS_EDIT_5
+</div>
 
-### CANVAS_OLD_STR
-```html
-    <!-- Tech Specs Section -->
-    <section id="specs" class="specs">
-        <h2>Technical Superiority</h2>
-        <div class="specs-container">
-            <ul class="specs-list">
-                <li><strong>Multi-Source:</strong> RSS, HTTP, Tor onion integration</li>
-                <li><strong>IOC Extraction:</strong> IPs, domains, URLs, emails, hashes</li>
-                <li><strong>Integrity:</strong> SHA-256 hash chains, cryptographic verification</li>
-                <li><strong>Diff Detection:</strong> Spot content changes instantly</li>
-                <li><strong>Rate Limiting:</strong> Adaptive throttling to avoid detection</li>
-                <li><strong>Alerts:</strong> Webhook (Slack/Discord) + SMTP email</li>
-                <li><strong>Pattern Matching:</strong> Regex + keyword rules with 280-char snippets</li>
-                <li><strong>Secrets Management:</strong> Environment variable substitution</li>
-            </ul>
-```
+---
 
-### CANVAS_NEW_STR
-```html
-    <!-- Arsenal Section -->
-    <section id="arsenal" class="specs">
-        <h2>Expertise Matrix</h2>
-        <div class="specs-container">
-            <ul class="specs-list">
-                <li><strong>AI Autonomy:</strong> Multi-agent loops, governance, memory systems</li>
-                <li><strong>Security:</strong> Cryptographic vaults, zero-trust design, audit trails</li>
-                <li><strong>Red-Team OSINT:</strong> Collection, enrichment, .onion monitoring</li>
-                <li><strong>Automation:</strong> Systems orchestration, CI/CD, DevOps</li>
-                <li><strong>Research:</strong> Netcode models, verification-driven analysis</li>
-                <li><strong>Full-Stack Dev:</strong> Python, PowerShell, Rust, JavaScript</li>
-                <li><strong>Infrastructure:</strong> Kubernetes, Docker, IPFS, S3 vaults</li>
-                <li><strong>Languages:</strong> Python, C++, Java, PowerShell, Bash, Lua</li>
-            </ul>
-```
+## 📐 Fig. II — System Schematics
 
-## CANVAS_EDIT_6
+<div align="center">
 
-### CANVAS_OLD_STR
-```html
-            <div class="comparison-chart">
-                <h3 style="margin-bottom: 1.5rem; color: var(--text-secondary);">See How VORTEX Compares</h3>
-                <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/6e301f4effeea55d6bd9d50f20b5cdd2/a6f082f9-c449-4964-8b7d-f41207dc88a7/f9380c3a.png" alt="VORTEX vs Standard OSINT">
-            </div>
-```
+| Attribute | Grade | Description |
+|---------|-------|-------------|
+| **Intelligence** | A+ | Vault Architect |
+| **Precision** | 💯 | Enforced CI/CD |
+| **Endurance** | 4,000+ hrs | Research & Analysis |
 
-### CANVAS_NEW_STR
-```html
-            <div class="comparison-chart">
-                <h3 style="margin-bottom: 1.5rem; color: var(--text-secondary);">Status Dashboard</h3>
-                <div style="background: rgba(20, 24, 41, 0.6); border: 1px solid rgba(0, 217, 255, 0.1); border-radius: 10px; padding: 2rem; text-align: left;">
-                    <div style="margin-bottom: 1rem;"><strong style="color: #00d9ff;">30+</strong> Repos • <strong style="color: #00d9ff;">100%</strong> CI/CD Coverage</div>
-                    <div style="margin-bottom: 1rem;"><strong style="color: #00ff88;">✓ LIVE:</strong> OSINT Framework v1.0</div>
-                    <div style="margin-bottom: 1rem;"><strong style="color: #00ff88;">✓ LIVE:</strong> Netcode Research (95.2% verified)</div>
-                    <div><strong style="color: #ffd700;">🔄 ACTIVE:</strong> CharlesAI, OBELISK, 6+ research projects</div>
-                </div>
-            </div>
-```
+</div>
 
-## CANVAS_EDIT_7
+---
 
-### CANVAS_OLD_STR
-```html
-    <!-- Use Cases Section -->
-    <section id="use-cases" class="use-cases">
-        <div class="section-header">
-            <h2>Real-World Applications</h2>
-            <p>Trusted by security teams conducting authorized reconnaissance operations.</p>
-        </div>
-        <div class="use-cases-grid">
-            <div class="use-case-card">
-                <h3>🔍 Threat Hunting</h3>
-                <p>Continuously monitor security feeds and dark web forums for threats targeting your infrastructure. React in real-time.</p>
-            </div>
-            <div class="use-case-card">
-                <h3>📋 Compliance & Evidence</h3>
-                <p>Tamper-proof storage and hash chains create audit-ready documentation for authorized assessments.</p>
-            </div>
-            <div class="use-case-card">
-                <h3>🎯 Red Team Ops</h3>
-                <p>Intelligence gathering with OPSEC hardening. Tor integration and rate limiting keep you off radars.</p>
-            </div>
-            <div class="use-case-card">
-                <h3>📊 Data Enrichment</h3>
-                <p>Automatically correlate IOCs across sources. WHOIS/DNS lookups give you infrastructure intel instantly.</p>
-            </div>
-            <div class="use-case-card">
-                <h3>⚡ Leak Monitoring</h3>
-                <p>Track credential databases, exposed APIs, and breach forums. Get alerted before threats materialize.</p>
-            </div>
-            <div class="use-case-card">
-                <h3>🛡️ Security Research</h3>
-                <p>Systematic data collection with flexible scheduling. Build datasets for analysis and pattern detection.</p>
-            </div>
-        </div>
-    </section>
-```
+## 🛠️ Fig. III — The Great Inventions
 
-### CANVAS_NEW_STR
-```html
-    <!-- Engagement Section -->
-    <section id="engage" class="use-cases">
-        <div class="section-header">
-            <h2>Engagement Model</h2>
-            <p>Contract-based partnership for teams scaling production systems.</p>
-        </div>
-        <div class="use-cases-grid">
-            <div class="use-case-card">
-                <h3>⚡ Phase I: Deployment</h3>
-                <p><strong style="color: #00d9ff;">$75/hr</strong> • 1–3 month • $35k minimum (30+ hrs/week). Architecture, MVP, security hardening, 100% CI/CD guaranteed.</p>
-            </div>
-            <div class="use-case-card">
-                <h3>🚀 Phase II: Scaling</h3>
-                <p><strong style="color: #00d9ff;">$125–155/hr</strong> • Month 4+ • Performance-unlocked. Enterprise scaling, multi-agent governance, proprietary R&amp;D.</p>
-            </div>
-            <div class="use-case-card">
-                <h3>🏛️ Research & Consulting</h3>
-                <p>Architectural audits, security assessments, zero-trust design, AI agent governance consulting. Custom rate negotiation.</p>
-            </div>
-            <div class="use-case-card">
-                <h3>🔐 Security Hardening</h3>
-                <p>Full-stack encryption implementations, audit trail design, tamper-evident storage, compliance documentation.</p>
-            </div>
-            <div class="use-case-card">
-                <h3>🤖 AI Autonomy</h3>
-                <p>Multi-agent platforms, OPAV loops, decision governance, memory architectures, orchestration systems.</p>
-            </div>
-            <div class="use-case-card">
-                <h3>📍 Location & Model</h3>
-                <p><strong>Keokuk, Iowa, USA</strong> • Remote-preferred • Fast turnaround • Ship-ready code on day zero.</p>
-            </div>
-        </div>
-    </section>
-```
+### ⚡ TITAN_OSINT — *Red-Team Reconnaissance Engine*
+Async OSINT platform with Tor-native collection, cryptographic evidence vaults, and deterministic pipelines.  
+Built for operators who require **auditability, speed, and adversarial resilience**.
 
-## CANVAS_EDIT_8
+→ https://github.com/POWDER-RANGER/red-team-osint-tool
 
-### CANVAS_OLD_STR
-```html
-    <!-- Code Section -->
-    <section class="code-section">
-        <h2>Get Up & Running in Minutes</h2>
-        <div class="code-block" data-language="bash">
-            <code>git clone https://github.com/POWDER-RANGER/vortex.git
-cd vortex
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python run.py daemon</code>
-        </div>
-        <div class="code-block" data-language="yaml">
-            <code>app:
-  db_path: "evidence.sqlite"
-  log_level: "INFO"
+---
 
-matching:
-  keywords:
-    - "yourcompany"
-    - "credential leak"
-  regex:
-    - "(?i)api[_-]?key\\s*[:=]"
+### 🌐 NINE_REALITIES — *Netcode Physics Research*
+Original **N+1 reconciliation model**, verified at **95.2% accuracy** across 98 sources.  
+Derived from 4,000+ hours of empirical observation and simulation.
 
-sources:
-  rss:
-    - name: "KrebsOnSecurity"
-      url: "https://krebsonsecurity.com/feed/"
-      interval_seconds: 1800</code>
-        </div>
-    </section>
-```
+→ https://github.com/POWDER-RANGER/nine-realities-netcode
 
-### CANVAS_NEW_STR
-```html
-    <!-- Contact Section -->
-    <section class="code-section">
-        <h2>Get In Touch</h2>
-        <div class="code-block" data-language="text">
-            <code>📧 Email: curtis@powder-ranger.io
-🔗 Portfolio: https://powder-ranger.github.io
-💼 Upwork: https://www.upwork.com/freelancers/~0165288f789d304e87
-💻 GitHub: https://github.com/POWDER-RANGER
-🔬 ORCID: https://orcid.org/0009-0008-9273-2458
-📍 Location: Keokuk, Iowa, USA (Remote-Preferred)</code>
-        </div>
-        <div class="code-block" data-language="text">
-            <code>AVAILABLE FOR:
-✓ Contract systems engineering (Phase I: $75/hr)
-✓ Enterprise architecture & security audits
-✓ AI agent development & orchestration
-✓ Red-team OSINT tools & automation
-✓ Full-stack development & DevOps pipelines</code>
-        </div>
-    </section>
-```
+---
 
-## CANVAS_EDIT_9
+### 🤖 CHARLES_AI — *Autonomous Agent Platform*
+A full **Observe → Plan → Act → Verify** loop with real-time dashboards, browser control, and memory governance.  
+Autonomy without audit is chaos. This is autonomy with law.
 
-### CANVAS_OLD_STR
-```html
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <h2>Intelligence That Scales With You</h2>
-        <p>VORTEX adapts to your threat landscape. Deploy on a single system or scale across your infrastructure.</p>
-        <button class="btn-primary">⬇ Download on GitHub</button>
-    </section>
-```
+→ https://github.com/POWDER-RANGER/CharlesAI
 
-### CANVAS_NEW_STR
-```html
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <h2>Build Production Systems With An Architect</h2>
-        <p>30+ repositories. 100% CI/CD. 4,000+ research hours. Ship-ready code on day zero. Phase I contracts available now.</p>
-        <button class="btn-primary">💼 Contract Phase I ($75/hr)</button>
-    </section>
-```
+---
 
-## CANVAS_EDIT_10
+### 🔐 OBELISK_CORE — *Zero-Trust Memory Vault*
+AES-256 encrypted agent vaults, immutable HMAC audit chains, and strict isolation.  
+Governance for machines that must be trusted without faith.
 
-### CANVAS_OLD_STR
-```html
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 VORTEX Intelligence Framework. MIT License. Built for authorized security research. <a href="#legal">Legal Notice</a> | <a href="https://github.com/POWDER-RANGER/vortex">GitHub</a></p>
-    </footer>
-```
+→ https://github.com/POWDER-RANGER/OBELISK_CORE
 
-### CANVAS_NEW_STR
-```html
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Curtis Charles Farrar • Keokuk, Iowa • MIT Licensed • Actively Shipping<br>
-        <i>"Art without engineering is dreaming. Engineering without art is calculating."</i><br>
-        <a href="https://github.com/POWDER-RANGER">GitHub</a> | <a href="https://powder-ranger.github.io">Portfolio</a> | <a href="https://www.upwork.com/freelancers/~0165288f789d304e87">Hire Me</a></p>
-    </footer>
-```
+---
 
+## 📜 Fig. IV — Commission the Architect
 
+<div align="center">
 
+**AVAILABLE FOR CONTRACT**
+
+- **Phase I — Deployment:** $75/hr  
+- **Phase II — Scaling:** $125/hr (performance-unlocked)
+
+<a href="https://www.upwork.com/freelancers/~0165288f789d304e87">
+  <img src="https://img.shields.io/badge/SIGN_CONTRACT-UPWORK-bf953f?style=for-the-badge&labelColor=020617" />
+</a>
+
+<a href="https://github.com/sponsors/POWDER-RANGER">
+  <img src="https://img.shields.io/badge/BECOME_PATRON-SPONSOR-bf953f?style=for-the-badge&labelColor=020617" />
+</a>
+
+</div>
+
+---
+
+<div align="center">
+  <img src="https://komarev.com/ghpvc/?username=POWDER-RANGER&color=bf953f&style=flat-square&label=OBSERVERS"/>
+
+  <p style="font-family: monospace; font-size: 12px; color: #64748b;">
+    MCMXCV–MMXXVI • CURTIS CHARLES FARRAR • KEOKUK, IOWA<br>
+    <i>Art without engineering is dreaming. Engineering without art is calculation.</i>
+  </p>
+</div>
