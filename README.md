@@ -7,7 +7,9 @@
 
 **Built like a weapon. Monitors like a predator. Evidence you can actually use in court.**
 
-[![Feature Matrix](https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/6e301f4effeea55d6bd9d50f20b5cdd2/a6f082f9-c449-4964-8b7d-f41207dc88a7/f9380c3a.png)](https://github.com/POWDER-RANGER/vortex)
+<div align="center">
+<img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/6e301f4effeea55d6bd9d50f20b5cdd2/a6f082f9-c449-4964-8b7d-f41207dc88a7/f9380c3a.png" alt="VORTEX vs Standard OSINT Tools" width="90%" style="border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); margin: 2rem 0;">
+</div>
 
 > **VORTEX doesn't collect data. It *harvests intel*.**
 
@@ -30,13 +32,15 @@ python run.py daemon  # Your intel flows live
 
 ## ⚡ **Weaponized Intelligence Platform**
 
-| **Capability** | **Status** | **Detail** |
+| **Capability** | **VORTEX** | **Generic Tools** |
 |---|---|---|
-| 🔍 **Multi-Vector Harvest** | ✅ **Native** | RSS + HTTP + **Tor Onion** |
-| 🛡️ **Tamper-Evident Vault** | ✅ **Native** | Hash-chained SQLite evidence |
-| 🔔 **Instant Alerts** | ✅ **Native** | Slack/Discord/Teams/SMTP |
-| 🕵️ **Dark Web Ready** | ✅ **Native** | SOCKS5 + circuit rotation |
-| 🔒 **OPSEC Hardened** | ✅ **Native** | Env vars + rate limits + log redaction |
+| 🔍 **Multi-Vector Harvest** | ✅ **Native** | ⚠️ Limited |
+| 🛡️ **Tamper-Evident Vault** | ✅ **Native** | ❌ None |
+| 🔔 **Instant Alerts** | ✅ **Native** | ⚠️ Basic |
+| 🕵️ **Dark Web / Onion** | ✅ **Native** | ❌ None |
+| 🔒 **OPSEC Hardening** | ✅ **Native** | ⚠️ Minimal |
+
+**VORTEX dominates every category.**
 
 ---
 
@@ -167,3 +171,7 @@ python run.py daemon
 **VORTEX: Because real operators don't use toy scanners.**<br>
 MIT License | January 2026 | Built by operators, for operators
 </div>
+```
+
+ 
+
