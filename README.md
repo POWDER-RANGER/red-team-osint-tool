@@ -1,67 +1,17 @@
-# 🌪️ **VORTEX**
-*Enterprise-Grade Red Team OSINT Framework*
+
+# 🌪️ **VORTEX** <span style="background: linear-gradient(135deg, #0ea5e9 0%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900;">Enterprise Red Team OSINT</span>
+
+<div align="center">
+<img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/302b35bc-b0df-4432-a992-50029f017db0.png" alt="VORTEX Dashboard" width="100%" style="border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); margin: 2rem 0; max-width: 1200px;">
+</div>
 
 **Built like a weapon. Monitors like a predator. Evidence you can actually use in court.**
 
-A Python-based intelligence harvesting platform for security operators who demand **production-grade reconnaissance**—not hobbyist scripts. RSS feeds, HTTP endpoints, **dark web onion services**, automated IOC extraction, tamper-evident storage, and instant alerts that actually work.
+[![Feature Matrix](https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/6e301f4effeea55d6bd9d50f20b5cdd2/a6f082f9-c449-4964-8b7d-f41207dc88a7/f9380c3a.png)](https://github.com/POWDER-RANGER/vortex)
 
-[Live Dashboard Preview](see the generated image above)
+> **VORTEX doesn't collect data. It *harvests intel*.**
 
-## Why VORTEX Crushes Standard OSINT Tools
-
-| Feature | VORTEX | Generic Tools |
-|---------|--------|---------------|
-| Multi-Source Coverage | **Native** | Limited |
-| Real-Time Monitoring | **Native** | Partial |
-| Dark Web / Onion | **Native** | None |
-| Tamper-Evident Storage | **Native** | None |
-| Automated Alerts | **Native** | Limited |
-| OPSEC Hardening | **Native** | Minimal |
-| Webhook + SMTP | **Native** | Partial |
-| Hash-Chain Integrity | **Native** | None | 
-
-***
-
-## ⚡ **Battle-Tested Features**
-
-### **1. Multi-Vector Intelligence Harvesting**
-```
-RSS threat feeds → HTTP endpoints → Tor onion services
-                       ↓
-            SHA-256 content fingerprinting
-                       ↓
-           Automated IOC extraction (IPs, domains, hashes)
-```
-- **15+ source types** with circuit rotation and rate limiting
-- **Change detection** via content diffs and hash chains
-- **Infrastructure intel** (DNS/WHOIS) on every artifact
-
-### **2. Tamper-Evident Evidence Vault**
-```
-SQLite → Hash-Chained Records → Cryptographic Integrity
-```
-- Every record cryptographically linked to previous entry
-- Full content + metadata archival with redaction controls
-- **Court-admissible** evidence chain from Day 1
-
-### **3. Operator-First Alerting**
-```
-Keywords → Regex → Instant Webhook/SMTP → Your Slack/Discord
-```
-- Slack, Discord, Teams, custom webhook endpoints
-- SMTP with TLS + STARTTLS + OAuth2 support
-- **280-char snippets** with full evidence links
-
-### **4. OPSEC Hardened**
-```
-Tor circuit renewal → Env var secrets → Request fingerprints → Log redaction
-```
-- SOCKS5 Tor proxy integration (127.0.0.1:9050)
-- `${SECRET}` environment variable substitution
-- Rate limiting + user-agent rotation
-- Zero sensitive data in logs or console
-
-***
+---
 
 ## 🚀 **Deploy In 90 Seconds**
 
@@ -70,155 +20,150 @@ git clone https://github.com/POWDER-RANGER/vortex.git
 cd vortex
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-
-# Set your secrets
-export SMTP_PASSWORD="your-password"
-export SLACK_WEBHOOK="https://hooks.slack.com/..."
-
-python run.py daemon  # Go live
+export SLACK_WEBHOOK="your-webhook"
+python run.py daemon  # Your intel flows live
 ```
 
 **That's it.** No Docker. No Kubernetes. No babysitting.
 
-***
+---
 
-## ⚙️ **Configuration That Actually Works**
+## ⚡ **Weaponized Intelligence Platform**
+
+| **Capability** | **Status** | **Detail** |
+|---|---|---|
+| 🔍 **Multi-Vector Harvest** | ✅ **Native** | RSS + HTTP + **Tor Onion** |
+| 🛡️ **Tamper-Evident Vault** | ✅ **Native** | Hash-chained SQLite evidence |
+| 🔔 **Instant Alerts** | ✅ **Native** | Slack/Discord/Teams/SMTP |
+| 🕵️ **Dark Web Ready** | ✅ **Native** | SOCKS5 + circuit rotation |
+| 🔒 **OPSEC Hardened** | ✅ **Native** | Env vars + rate limits + log redaction |
+
+---
+
+## 🎯 **Live Intelligence Flow**
+
+```
+Threat Feeds → IOC Extraction → Hash Fingerprinting → Alert Pipeline
+     ↓                    ↓                    ↓                 ↓
+Krebs RSS    IPs/Hashes/Domains    SHA-256 Chains    Slack + Email    ✅ COURT ADMISSIBLE
+Dark Reading     ↓                    ↓                 ↓
+Onion Pastes  Content Diffs    Tamper-Evident    280-char Intel
+```
+
+---
+
+## ⚙️ **Configuration (Production Ready)**
+
+<div style="background: #0f172a; border-radius: 16px; padding: 2rem; border: 1px solid #334155; margin: 2rem 0; font-family: 'SF Mono', monospace;">
 
 ```yaml
-# config.yml - Production ready from first run
-app:
-  db_path: "evidence.sqlite"
-  log_level: "INFO"
-
 matching:
   keywords: ["yourcompany", "credential", "api key"]
   regex: ["(?i)password[:=]", "(?i)leak\\b"]
-  
+
 sources:
   rss:
     - name: "Krebs"
       url: "https://krebsonsecurity.com/feed/"
-      interval: 1800  # 30min
-  http:
-    - name: "DarkReading"
-      url: "https://www.darkreading.com/rss_simple.asp"
-      interval: 3600
   onion:
     tor_socks5: "socks5h://127.0.0.1:9050"
     targets:
-      - name: "PasteStatus"
-        url: "http://pastesiteonion123.onion/"
-        interval: 7200
+      - name: "PasteSite"
+        url: "http://pastesite.onion/"
 
 alerts:
-  webhook:
-    url: "${SLACK_WEBHOOK}"
+  webhook: "${SLACK_WEBHOOK}"
   smtp:
-    host: "smtp.gmail.com"
     username: "${SMTP_USER}"
     password: "${SMTP_PASSWORD}"
 ```
 
-***
+</div>
 
-## 🎯 **Operator Commands**
+---
 
-```bash
-# Harvest everything once
-python run.py once
-
-# Daemon mode (the real weapon)
-python run.py daemon
-
-# Recent hits (last N records)
-python run.py recent --limit 25
-
-# Debug a source
-python run.py test-source krebs
-
-# Vacuum + optimize DB
-python run.py maintenance
-```
-
-***
-
-## 🛡️ **Tor Setup (Dark Web Ready)**
+## 🛡️ **Tor Setup (Dark Web Access)**
 
 ```bash
 # Linux/macOS
-sudo apt install tor  # or brew install tor
-tor &  # SOCKS5 auto-starts on 127.0.0.1:9050
+sudo apt install tor && tor &
 
-# Verify
+# Verify connection
 curl --socks5 127.0.0.1:9050 https://check.torproject.org
 ```
 
-**Windows:** Download Tor Expert Bundle. Extract. Run `tor.exe`.
+**Windows:** [Tor Expert Bundle](https://www.torproject.org/download/tor/)
 
-***
+---
 
-## 🏗️ **Weaponized Architecture**
+## 🎮 **Operator Commands**
+
+| Command | Purpose |
+|---|---|
+| `python run.py daemon` | **Live monitoring** (the real weapon) |
+| `python run.py once` | One-time intelligence harvest |
+| `python run.py recent --limit 25` | **Latest hits** from your vault |
+| `python run.py test-source krebs` | Validate individual source |
+
+---
+
+## 🏗️ **Battle-Tested Architecture**
 
 ```
 vortex/
-├── sources/     # RSS, HTTP, Onion, Paste sites
-├── enrich/      # IOC extraction, WHOIS, DNS, hashing
-├── storage/     # Hash-chained SQLite evidence vault
-├── alerts/      # Webhook, SMTP, on-call escalation
-├── opsec/       # Tor, rate limits, log redaction
-└── cli.py       # Your command center
+├── sources/     # RSS, HTTP, Onion 🕸️
+├── storage/     # Hash-chained SQLite 🔗
+├── alerts/      # Slack/Email webhooks 📱
+├── opsec/       # Tor + rate limits 🛡️
+└── cli.py       # Your command center 🎯
 ```
 
-***
+---
 
-## ⚖️ **Legal & Responsible Use**
+## ⚖️ **Legal & Responsible Disclosure**
 
-**This is a professional tool for authorized operations only.**
+<div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-left: 4px solid #ef4444; padding: 1.5rem; border-radius: 12px; margin: 2rem 0;">
 
-✅ **Legal Use Cases:**
-- Authorized red team assessments
-- Threat hunting for your organization
-- Monitoring your own attack surface
-- Defensive threat intelligence
+**🔴 PROFESSIONAL TOOL FOR AUTHORIZED OPERATIONS ONLY**
 
-❌ **Never:**
-- Unauthorized system access
-- Competitor monitoring
-- Personal data harvesting
-- Evading law enforcement
+✅ **Legal:** Red team assessments, threat hunting, attack surface monitoring  
+❌ **Illegal:** Unauthorized access, competitor intel, personal data harvesting
 
 **Operators assume full legal responsibility.**
 
-***
+</div>
+
+---
 
 ## 📈 **Production Roadmap**
 
-- 🔴 **LIVE**: Multi-source monitoring + alerting
-- 🟡 **Q1**: Rule packs + ML triage
-- 🟢 **Q2**: MISP/ThreatConnect export
-- 🔵 **Q3**: Browser automation + screenshot capture
+| **Phase** | **Feature** | **Status** |
+|---|---|---|
+| Q1 2026 | Multi-source + alerting | ✅ **LIVE** |
+| Q2 2026 | ML triage + rule packs | 🔄 **Building** |
+| Q3 2026 | MISP/ThreatConnect export | 🔵 **Planned** |
 
-***
+---
 
-## 🔥 **Get In The Game**
+<div align="center" style="margin: 4rem 0; padding: 3rem; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 24px; border: 1px solid #334155;">
+
+<h2 style="font-family: 'Orbitron', monospace; background: linear-gradient(135deg, #0ea5e9 0%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">🚀 DEPLOY VORTEX NOW</h2>
 
 ```bash
 git clone https://github.com/POWDER-RANGER/vortex.git
-cd vortex
-python run.py daemon  # Your intel flows
+cd vortex && pip install -r requirements.txt
+python run.py daemon
 ```
 
-**Questions?** GitHub Issues. **Production support?** Open an issue.
+**Your intel flows in 90 seconds.**
 
-***
-
-<div align="center">
-
-**VORTEX: Because real operators don't use toy scanners.**
-
-![VORTEX Dashboard](see the generated image above)
+<a href="https://github.com/POWDER-RANGER/vortex" style="display: inline-block; background: linear-gradient(135deg, #0ea5e9 0%, #ec4899 100%); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.2rem; text-decoration: none; box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4); transition: all 0.3s ease;">
+⭐ Star on GitHub
+</a>
 
 </div>
 
-**MIT License** | **Built by operators, for operators** | **January 2026**
-
+<div align="center" style="color: #64748b; font-size: 0.9rem; margin-top: 3rem;">
+**VORTEX: Because real operators don't use toy scanners.**<br>
+MIT License | January 2026 | Built by operators, for operators
+</div>
