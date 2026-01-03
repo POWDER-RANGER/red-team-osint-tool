@@ -1,0 +1,109 @@
+# osinttool/db_writer.py
+import sqlite3
+import json
+import hashlib
+from datetime import datetime
+from contextlib import contextmanager
+
+DB_PATH = "database/osint.db"
+
+@contextmanager
+def get_db():
+    """Context manager for database connections"""
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    try:
+        yield conn
+        conn.commit()
+    except Exception as e:
+        conn.rollback()
+        raise e
+    finally:
+        conn.close()
+
+class SourceRegistry:
+    """Manages source registration and status updates"""
+    
+    @staticmethod
+    def register(name, source_type, url=None, config=None):
+        """Register or update a source"""
+        with get_db() as conn:
+            config_json = json.dumps(config) if config else None
+            conn.execute("""
+                INSERT INTO sources (name, type, url, config_json)
+                VALUES (?, ?, ?, ?)
+                ON CONFLICT(name) DO UPDATE SET
+                    type=excluded.type,
+                    url=excluded.url,
+                    config_json=excluded.config_json
+            """, (name, source_type, url, config_json))
+            return conn.execute("SELECT id FROM sources WHERE name=?", (name,)).fetchone()[0]
+    
+    @staticmethod
+    def update_status(source_id, status, error=None):
+        """Update source status"""
+        with get_db() as conn:
+            now = datetime.utcnow().isoformat()
+            if status == 'active':
+                conn.execute("""
+                    UPDATE sources 
+                    SET status=?, last_run=?
+                    WHERE id=?
+                """, (status, now, source_id))
+            elif status == 'error':
+                conn.execute("""
+                    UPDATE sources 
+                    SET status=?, error_count=error_count+1
+                    WHERE id=?
+                """, (status, source_id))
+            elif status == 'idle':
+                conn.execute("""
+                    UPDATE sources 
+                    SET status=?, last_success=?
+                    WHERE id=?
+                """, (status, now, source_id))
+
+class EvidenceWriter:
+    """Writes evidence to database with deduplication"""
+    
+    @staticmethod
+    def write(source_id, title, content, url=None, severity='info', 
+              matched=False, iocs=None, tags=None):
+        """Write evidence with automatic deduplication"""
+        
+        # Generate hash for deduplication
+        content_hash = hashlib.sha256(content.encode('utf-8')).hexdigest()
+        
+        iocs_json = json.dumps(iocs) if iocs else None
+        tags_json = json.dumps(tags) if tags else None
+        
+        with get_db() as conn:
+            try:
+                cursor = conn.execute("""
+                    INSERT INTO evidence 
+                    (source_id, title, content, url, severity, matched, 
+                     iocs_json, tags_json, hash)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (source_id, title, content, url, severity, 
+                      int(matched), iocs_json, tags_json, content_hash))
+                
+                evidence_id = cursor.lastrowid
+                print(f"[✓] Evidence written: ID={evidence_id}, Severity={severity}, Matched={matched}")
+                return evidence_id
+                
+            except sqlite3.IntegrityError:
+                print(f"[!] Duplicate evidence (hash collision), skipping")
+                return None
+
+class AlertDispatcher:
+    """Logs alert dispatches"""
+    
+    @staticmethod
+    def log(evidence_id, channel, recipient, message, status='sent', error=None):
+        """Log an alert dispatch"""
+        with get_db() as conn:
+            conn.execute("""
+                INSERT INTO alerts 
+                (evidence_id, channel, recipient, message, status, error_message)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (evidence_id, channel, recipient, message, status, error))
