@@ -2,3 +2,7 @@ requests
 beautifulsoup4
 PySocks>=1.7.1
 stem
+APScheduler>=3.10.0
+PyYAML>=6.0
+feedparser>=6.0.0
+python-whois>=0.8.0
