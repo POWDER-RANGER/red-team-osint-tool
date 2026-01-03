@@ -1,0 +1,52 @@
+app:
+  db_path: "evidence.sqlite"
+  log_level: "INFO"
+
+matching:
+  keywords:
+    - "yourcompany"
+    - "powder-ranger"
+    - "orcid"
+    - "api key"
+    - "credential"
+  regex:
+    - "(?i)password\\s*[:=]"
+    - "(?i)api[_-]?key\\s*[:=]"
+    - "(?i)token\\s*[:=]"
+    - "(?i)leak(ed)?\\b"
+  max_snippet_chars: 280
+
+sources:
+  rss:
+    - name: "KrebsOnSecurity"
+      url: "https://krebsonsecurity.com/feed/"
+      interval_seconds: 1800
+    - name: "BleepingComputer"
+      url: "https://www.bleepingcomputer.com/feed/"
+      interval_seconds: 1800
+
+  http:
+    - name: "ExampleBlog"
+      url: "https://example.com/security"
+      interval_seconds: 3600
+
+  onion_allowlist:
+    tor_socks5: "socks5h://127.0.0.1:9050"
+    targets:
+      - name: "OnionStatusPage"
+        url: "http://exampleonionaddressonion.onion/"
+        interval_seconds: 3600
+
+alerts:
+  webhook:
+    enabled: false
+    url: "https://your-webhook-endpoint"
+  smtp:
+    enabled: false
+    host: "smtp.example.com"
+    port: 587
+    username: "user@example.com"
+    password: "REPLACE_ME"
+    from_addr: "user@example.com"
+    to_addrs:
+      - "security@example.com"
