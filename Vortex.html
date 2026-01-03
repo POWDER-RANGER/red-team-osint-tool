@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORTEX - Enterprise Red Team OSINT Framework</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * { font-family: 'Inter', sans-serif; }
+        .font-orbitron { font-family: 'Orbitron', monospace; }
+        
+        .glass { 
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9 0%, #f472b6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .cyber-glow {
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(14, 165, 233, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(14, 165, 233, 0.6); }
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="glass fixed w-full z-50 top-0 backdrop-blur-xl border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center cyber-glow">
+                        <i class="fas fa-vortex text-white text-xl"></i>
+                    </div>
+                    <span class="font-orbitron text-xl font-bold gradient-text">VORTEX</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-slate-300 hover:text-teal-400 transition-all duration-300 font-medium">Features</a>
+                    <a href="#demo" class="text-slate-300 hover:text-teal-400 transition-all duration-300 font-medium">Demo</a>
+                    <a href="#install" class="text-slate-300 hover:text-teal-400 transition-all duration-300 font-medium">Install</a>
+                    <a href="#github" class="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-6 py-2 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl cyber-glow">
+                        <i class="fab fa-github mr-2"></i>GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center pt-20 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid-slate-900/20 [background-size:100px_100px]"></div>
+        
+        <!-- Floating particles -->
+        <div class="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-teal-500/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-l from-purple-500/20 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <div class="inline-block px-8 py-4 glass rounded-2xl mb-8 border border-teal-500/30 cyber-glow">
+                <span class="text-teal-400 font-mono text-sm tracking-wider">ENTERPRISE-GRADE</span>
+            </div>
+            
+            <h1 class="font-orbitron text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                <span class="gradient-text drop-shadow-2xl">VORTEX</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed opacity-90">
+                The red team OSINT framework that <span class="gradient-text font-semibold">actually works</span>. 
+                Dark web monitoring. Tamper-evident evidence. Instant alerts. Built for operators.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                <a href="#install" class="group bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-12 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cyber-glow pulse-glow">
+                    <i class="fas fa-rocket mr-3 group-hover:animate-pulse"></i>
+                    Deploy Now
+                </a>
+                <a href="#demo" class="group border-2 border-teal-500/50 hover:border-teal-400 text-teal-400 hover:text-teal-300 px-12 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-teal-500/10 glass backdrop-blur-sm">
+                    <i class="fas fa-play mr-3"></i>Live Demo
+                </a>
+            </div>
+            
+            <!-- Feature Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="font-orbitron text-3xl font-black gradient-text mb-2">15+</div>
+                    <div class="text-slate-400 text-sm">Source Types</div>
+                </div>
+                <div>
+                    <div class="font-orbitron text-3xl font-black gradient-text mb-2">100%</div>
+                    <div class="text-slate-400 text-sm">OPSEC Compliant</div>
+                </div>
+                <div>
+                    <div class="font-orbitron text-3xl font-black gradient-text mb-2">Court</div>
+                    <div class="text-slate-400 text-sm">Admissible</div>
+                </div>
+                <div>
+                    <div class="font-orbitron text-3xl font-black gradient-text mb-2">0s</div>
+                    <div class="text-slate-400 text-sm">Setup Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-32 bg-gradient-to-b from-slate-900 to-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-24">
+                <h2 class="font-orbitron text-5xl md:text-6xl font-black mb-6 gradient-text">Weaponized Intelligence</h2>
+                <p class="text-xl text-slate-300 max-w-2xl mx-auto">VORTEX doesn't collect data. It <span class="gradient-text font-bold">harvests intel</span>.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="group glass p-8 rounded-3xl hover:scale-105 transition-all duration-500 hover:border-teal-500/50 border border-slate-800/50 hover:shadow-2xl cyber-glow">
+                    <div class="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:animate-spin-slow mx-auto">
+                        <i class="fas fa-rss text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-orbitron text-2xl font-bold mb-4 gradient-text text-center">Multi-Vector Harvesting</h3>
+                    <ul class="space-y-3 text-slate-300 mb-6">
+                        <li><i class="fas fa-check text-teal-400 mr-2"></i>RSS feeds + HTTP endpoints</li>
+                        <li><i class="fas fa-check text-teal-400 mr-2"></i>Tor onion service monitoring</li>
+                        <li><i class="fas fa-check text-teal-400 mr-2"></i>Automated IOC extraction</li>
+                    </ul>
+                    <div class="glass py-3 px-4 rounded-xl border border-teal-500/30">
+                        de class="text-teal-400 font-mono text-sm">15+ source types native</code>
+                    </div>
+                </div>
+                
+                <!-- Feature Card 2 -->
+                <div class="group glass p-8 rounded-3xl hover:scale-105 transition-all duration-500 hover:border-teal-500/50 border border-slate-800/50 hover:shadow-2xl cyber-glow">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:animate-bounce mx-auto">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-orbitron text-2xl font-bold mb-4 gradient-text text-center">Tamper-Evident Vault</h3>
+                    <ul class="space-y-3 text-slate-300 mb-6">
+                        <li><i class="fas fa-check text-teal-400 mr-2"></i>Hash-chained SQLite</li>
+                        <li><i class="fas fa-check text-teal-400 mr-2"></i>Cryptographic integrity</li>
+                        <li><i class="fas fa-check text-teal-400 mr-2"></i>Court-admissible chain</li>
+                    </ul>
+                    <div class="glass py-3 px-4 rounded-xl border border-teal-500/30">
+                        de class="text-teal-400 font-mono text-sm">SHA-256 evidence chain</code>
+                    </div>
+                </div>
+                
+                <!-- Feature Card 3 -->
+                <div class="group glass p-8 rounded-3xl hover:scale-105 transition-all duration-500 hover:border-teal-500/50 border border-slate-800/50 hover:shadow-2xl cyber-glow">
+                    <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 group-hover:pulse mx-auto">
+                        <i class="fas fa-bell text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-orbitron text-2xl font-bold mb-4 gradient-text text-center">Instant Operator Alerts</h3>
+                    <ul class="space-y-3 text-slate-300 mb-6">
+                        <li><i class="fas fa-check text-teal-400 mr-2"></i>Slack/Discord/Teams webhooks</li>
+                        <li><i class="fas fa-check text-teal-400 mr-2"></i>SMTP + OAuth2</li>
+                        <li><i class="fas fa-check text-teal-400 mr-2"></i>Regex + keyword matching</li>
+                    </ul>
+                    <div class="glass py-3 px-4 rounded-xl border border-teal-500/30">
+                        de class="text-teal-400 font-mono text-sm">280-char intel snippets</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Chart Section -->
+    <section id="comparison" class="py-32 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20">
+                <h2 class="font-orbitron text-5xl md:text-6xl font-black mb-6 text-white">VORTEX vs The Rest</h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">Standard OSINT tools can't compete.</p>
+            </div>
+            <div class="flex justify-center">
+                [chart:2]
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo/Dashboard Section -->
+    <section id="demo" class="py-32 bg-gradient-to-b from-slate-800 to-slate-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-24">
+                <h2 class="font-orbitron text-5xl md:text-6xl font-black mb-6 gradient-text">Live Intelligence Dashboard</h2>
+                <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-12">Your feeds. Your alerts. Your intel. Real time.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="glass p-12 rounded-3xl border border-teal-500/30 mb-8 cyber-glow">
+                        [image:1]
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="glass p-8 rounded-2xl border border-slate-700/50">
+                        <h3 class="font-orbitron text-2xl font-bold mb-4 text-teal-400">Production Deploy</h3>
+                        <pre class="bg-slate-900/50 p-6 rounded-xl border border-slate-700 text-sm font-mono text-slate-300">de>git clone https://github.com/POWDER-RANGER/vortex.git
+cd vortex
+pip install -r requirements.txt
+export SLACK_WEBHOOK="..."
+python run.py daemon</code></pre>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="#install" class="glass py-4 px-6 rounded-xl text-center hover:bg-teal-500/20 transition-all border border-teal-500/50 hover:border-teal-400">
+                            <i class="fas fa-terminal text-teal-400 text-xl mb-2 block"></i>
+                            <div class="text-sm font-semibold text-slate-300">90s Setup</div>
+                        </a>
+                        <a href="#tor" class="glass py-4 px-6 rounded-xl text-center hover:bg-purple-500/20 transition-all border border-purple-500/50 hover:border-purple-400">
+                            <i class="fas fa-eye text-purple-400 text-xl mb-2 block"></i>
+                            <div class="text-sm font-semibold text-slate-300">Dark Web Ready</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Install Section -->
+    <section id="install" class="py-32 bg-gradient-to-t from-slate-900 to-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-20">
+                <h2 class="font-orbitron text-5xl md:text-6xl font-black mb-6 gradient-text">Zero Friction Deployment</h2>
+                <p class="text-xl text-slate-300 max-w-2xl mx-auto">No Docker. No Kubernetes. No excuses.</p>
+            </div>
+            
+            <div class="glass p-12 rounded-3xl border-2 border-teal-500/30 cyber-glow backdrop-blur-xl">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="font-orbitron text-3xl font-bold mb-8 gradient-text">Live In 90 Seconds</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700/50">
+                                <div class="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-1 text-white font-bold">1</i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-2">Clone & Install</h4>
+                                    <pre class="text-sm font-mono text-slate-300">de>git clone https://github.com/POWDER-RANGER/vortex.git
+cd vortex && pip install -r requirements.txt</code></pre>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700/50">
+                                <div class="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-2 text-white font-bold">2</i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-2">Configure Secrets</h4>
+                                    <pre class="text-sm font-mono text-slate-300">de>export SLACK_WEBHOOK="your-webhook"
+export SMTP_PASSWORD="your-password"</code></pre>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700/50">
+                                <div class="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-3 text-white font-bold">3</i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-2">Go Live</h4>
+                                    <pre class="text-sm font-mono text-slate-300">de>python run.py daemon</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="glass p-8 rounded-2xl border border-teal-500/50 mb-8">
+                            <i class="fas fa-bolt text-6xl text-teal-400 mb-6 block mx-auto"></i>
+                            <div class="font-orbitron text-4xl font-black gradient-text mb-2">90s</div>
+                            <div class="text-slate-400 text-lg">From Zero to Production</div>
+                        </div>
+                        <a href="#github" class="w-full bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white py-6 px-8 rounded-2xl font-bold text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl cyber-glow block">
+                            <i class="fab fa-github mr-4"></i>
+                            Get VORTEX Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Footer -->
+    <footer class="py-20 bg-gradient-to-t from-slate-900 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="glass inline-flex items-center space-x-4 p-6 rounded-3xl border border-teal-500/30 backdrop-blur-xl mb-12 cyber-glow">
+                <div class="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center">
+                    <i class="fas fa-vortex text-white text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-orbitron text-2xl font-bold gradient-text">VORTEX</h3>
+                    <p class="text-slate-400">Built by operators. For operators.</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center mb-12">
+                <a href="#github" class="group bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl cyber-glow">
+                    <i class="fab fa-github mr-2"></i>
+                    GitHub Repository
+                </a>
+                <a href="#features" class="border-2 border-slate-600 hover:border-teal-400 text-slate-300 hover:text-teal-300 px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:bg-slate-800/50">
+                    Full Features
+                </a>
+            </div>
+            
+            <div class="text-slate-500 text-sm space-y-2">
+                <p>&copy; 2026 VORTEX. MIT License. For authorized security research only.</p>
+                <p class="text-teal-400">Operators assume full legal responsibility for authorized use.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.8)';
+            }
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass, .feature-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
