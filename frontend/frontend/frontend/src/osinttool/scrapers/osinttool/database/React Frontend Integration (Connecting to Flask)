@@ -1,0 +1,87 @@
+// Dashboard.jsx
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+const API_BASE = "http://localhost:5000/api";
+
+function Dashboard() {
+  const [stats, setStats] = useState({});
+  const [sources, setSources] = useState([]);
+  const [evidence, setEvidence] = useState([]);
+  const [alerts, setAlerts] = useState([]);
+  const [error, setError] = useState(false);
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setError(false);
+        const [statsRes, sourcesRes, evidenceRes, alertsRes] = await Promise.all([
+          axios.get(`${API_BASE}/stats`),
+          axios.get(`${API_BASE}/sources`),
+          axios.get(`${API_BASE}/evidence?search=${search}`),
+          axios.get(`${API_BASE}/alerts`),
+        ]);
+        setStats(statsRes.data);
+        setSources(sourcesRes.data);
+        setEvidence(evidenceRes.data);
+        setAlerts(alertsRes.data);
+      } catch (err) {
+        console.error("Error connecting to API:", err);
+        setError(true);
+      }
+    };
+    fetchData();
+    const interval = setInterval(fetchData, 30000);
+    return () => clearInterval(interval);
+  }, [search]);
+
+  return (
+    <div>
+      <header>
+        <h2>OSINT Dashboard</h2>
+        {error ? <span className="error-badge">Connection Error</span> : null}
+      </header>
+
+      <section>
+        <h3>Statistics</h3>
+        <p>Evidence Count: {stats.evidence_count || 0}</p>
+      </section>
+
+      <section>
+        <h3>Sources</h3>
+        <ul>
+          {sources.map((s) => (
+            <li key={s.id}>{s.name} ({s.status})</li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <input
+          placeholder="Search Evidence..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <ul>
+          {evidence.map((evi) => (
+            <li key={evi.id}>
+              <strong>{evi.title}</strong> - {evi.severity}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h3>Recent Alerts</h3>
+        <ul>
+          {alerts.map((a) => (
+            <li key={a.id}>{a.message}</li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  );
+}
+
+export default Dashboard;
